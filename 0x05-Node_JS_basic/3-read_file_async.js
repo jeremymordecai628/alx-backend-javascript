@@ -1,8 +1,7 @@
 const fs = require('fs');
-
-function countStudents(filePath) {
+async function countStudents(filePath) {
     try {
-        const data = fs.readFileSync(filePath, 'utf8');
+        const data = await fs.readFile(filePath, 'utf8');
         const lines = data.split('\n').filter((line) => line.trim() !== '');
         const fields = {};
 
@@ -21,4 +20,4 @@ function countStudents(filePath) {
     }
 }
 
-module.exports = countStudents;
+module.exports = countStudents
